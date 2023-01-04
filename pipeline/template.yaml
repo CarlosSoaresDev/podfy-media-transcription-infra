@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Infrastructure for transcribe application, [bucket]
+
+Parameters:
+  BucketName:
+    Description: bucket name to create
+    Type: String
+
+Resources:
+# -------------------------------------------------------------------------
+# Deploy S3 Bucket
+# -------------------------------------------------------------------------
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Ref BucketName
